@@ -4,7 +4,6 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
 
 /**
  * User entity for MongoDB
@@ -25,9 +24,6 @@ public class User {
      */
     private Identifiable company;
 
-    /**
-     * List of course references (only IDs)
-     */
-    private List<Identifiable> courses;
+
 
 }

@@ -3,7 +3,6 @@ package com.springboot.mongosam.model.dto;
 
 import com.springboot.mongosam.model.Identifiable;
 import lombok.Data;
-import java.util.List;
 
 @Data
 public class UserDto {
@@ -12,5 +11,4 @@ public class UserDto {
     private String lastname;
     private String username;
     private Identifiable company;
-    private List<Identifiable> courses;
 }

@@ -28,6 +28,7 @@ public class UserController {
 
     @PostMapping
     public UserDto create(@RequestBody UserDto dto) {
+        System.out.println("Inside User Controller...");
         return service.save(dto);
     }
 

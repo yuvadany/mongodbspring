@@ -7,7 +7,6 @@ import com.springboot.mongosam.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -27,8 +26,10 @@ public class UserService {
     }
 
     public UserDto save(UserDto dto) {
+        System.out.println("Passed Input : " +dto);
         User user = mapper.toEntity(dto);          // ✅ instance method
         User saved = repository.save(user);
+        System.out.println("Dto saved : " +saved);
         return mapper.toDto(saved);                // ✅ instance method
     }
     public UserDto findById(String id) {
@@ -36,6 +37,7 @@ public class UserService {
                 .map(mapper::toDto)
                 .orElse(null);  // or throw custom exception if preferred
     }
+
 
     public void deleteById(String id) {
         repository.deleteById(id);

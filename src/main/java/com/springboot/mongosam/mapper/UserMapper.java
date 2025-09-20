@@ -27,14 +27,6 @@ public class UserMapper {
         // Map company
         dto.setCompany(user.getCompany() != null ? new Identifiable(user.getCompany().getId()) : null);
 
-        // Map courses list
-        if (user.getCourses() != null) {
-            List<Identifiable> courseDtos = user.getCourses().stream()
-                    .map(c -> new Identifiable(c.getId()))
-                    .collect(Collectors.toList());
-            dto.setCourses(courseDtos);
-        }
-
         return dto;
     }
 
@@ -52,14 +44,6 @@ public class UserMapper {
 
         // Map company
         user.setCompany(dto.getCompany() != null ? new Identifiable(dto.getCompany().getId()) : null);
-
-        // Map courses list
-        if (dto.getCourses() != null) {
-            List<Identifiable> courseEntities = dto.getCourses().stream()
-                    .map(c -> new Identifiable(c.getId()))
-                    .collect(Collectors.toList());
-            user.setCourses(courseEntities);
-        }
 
         return user;
     }
