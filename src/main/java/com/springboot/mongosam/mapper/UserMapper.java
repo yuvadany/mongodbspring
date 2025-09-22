@@ -5,10 +5,6 @@ import com.springboot.mongosam.model.User;
 import com.springboot.mongosam.model.dto.UserDto;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
-
 @Component
 public class UserMapper {
 
@@ -23,9 +19,10 @@ public class UserMapper {
         dto.setFirstname(user.getFirstname());
         dto.setLastname(user.getLastname());
         dto.setUsername(user.getUsername());
+        dto.setRole(user.getRole());
 
         // Map company
-        dto.setCompany(user.getCompany() != null ? new Identifiable(user.getCompany().getId()) : null);
+        dto.setCompany(user.getCompany() != null ? new Identifiable(user.getCompany().getId(),user.getCompany().getTag()) : null);
 
         return dto;
     }
@@ -41,6 +38,7 @@ public class UserMapper {
         user.setFirstname(dto.getFirstname());
         user.setLastname(dto.getLastname());
         user.setUsername(dto.getUsername());
+        user.setRole(dto.getRole());
 
         // Map company
         user.setCompany(dto.getCompany() != null ? new Identifiable(dto.getCompany().getId()) : null);

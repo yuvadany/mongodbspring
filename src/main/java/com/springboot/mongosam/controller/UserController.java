@@ -33,9 +33,8 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public UserDto update(@PathVariable String id, @RequestBody UserDto dto) {
-        dto.setId(id);
-        return service.save(dto);
+    public UserDto update(@PathVariable ("id") String id, @RequestBody UserDto dto) {
+        return service.update(id, dto);
     }
 
     @DeleteMapping("/{id}")

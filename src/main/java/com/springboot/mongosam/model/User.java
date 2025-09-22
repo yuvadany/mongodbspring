@@ -18,6 +18,7 @@ public class User {
     private String firstname;
     private String lastname;
     private String username;
+    private String role;
 
     /**
      * Reference to a company (only stores the ID)
